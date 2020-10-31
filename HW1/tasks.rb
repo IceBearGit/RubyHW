@@ -179,7 +179,15 @@ end
 index_min_element [1,-2,3,4,-5,6,-3]
 p '--------------'
 
+p 'Дан целочисленный массив. Найти индекс максимального элемента.'
+p 'index_max_element [1,-2,3,4,-5,6,-3]'
+def index_max_element (arr)
 
+	p arr.index(arr.max)
+end
+
+index_max_element [1,-2,3,4,-5,6,-3]
+p '--------------'
 
 
 
