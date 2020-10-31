@@ -123,6 +123,19 @@ max_odd_element [1,2,3,4,5,6]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти минимальный положительный элемент.'
+p 'min_positive_element [1,-2,3,4,-5,6]'
+def min_positive_element (arr)
+
+	arr_positive = arr.find_all{ |elem| elem >= 0 }
+	puts arr_positive.min
+end
+
+min_positive_element [1,-2,3,4,-5,6]
+p '--------------'
+
+
+
 
 #p 'Дан целочисленный массив. Преобразовать его, прибавив к четным числам первый элемент. Первый и последний элементы массива не изменять.'
 #p 'adding_the_first_element_to_even_numbers [1,2,3,4,5,6]'
