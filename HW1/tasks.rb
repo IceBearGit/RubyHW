@@ -169,6 +169,16 @@ quantity_max_element [6,-2,3,4,6,6,-5]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти индекс минимального элемента.'
+p 'index_min_element [1,-2,3,4,-5,6,-3]'
+def index_min_element (arr)
+
+	p arr.index(arr.min)
+end
+
+index_min_element [1,-2,3,4,-5,6,-3]
+p '--------------'
+
 
 
 
