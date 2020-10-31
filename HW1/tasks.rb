@@ -53,7 +53,23 @@ end
 even_odd_parser [1,2,3,4,5,6]
 p '--------------'
 
+p 'Дан целочисленный массив. Вывести вначале все его нечетные элементы, а затем - четные.'
+p "odd_even_parser [1,2,3,4,5,6]"
+def odd_even_parser	(arr)
 
+	arr1 = arr.find_all{ |elem| elem % 2 == 0 }
+	arr2 = arr.find_all{ |elem| elem % 2 != 0 }
+
+	puts "odd elements" 
+	p arr2
+
+	puts "even elements" 
+	p arr1
+
+
+end
+odd_even_parser [1,2,3,4,5,6]
+p '--------------'
 
 
 
