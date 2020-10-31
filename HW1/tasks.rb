@@ -127,7 +127,7 @@ p 'Дан целочисленный массив. Найти минимальн
 p 'min_positive_element [1,-2,3,4,-5,6]'
 def min_positive_element (arr)
 
-	arr_positive = arr.find_all{ |elem| elem >= 0 }
+	arr_positive = arr.find_all{ |elem| elem >= 0 } #var2 - [1,-2,3,4,-5,6].select{|n| n >= 0}.min # => 1
 	puts arr_positive.min
 end
 
@@ -139,19 +139,26 @@ p 'Дан целочисленный массив. Найти максималь
 p 'max_negative_element [1,-2,3,4,-5,6]'
 def max_negative_element (arr)
 
-	arr_negative = arr.find_all{ |elem| elem < 0 }
-	puts arr_negative.max
+	arr_negative = arr.find_all{ |elem| elem < 0 } #var2 - [1,-2,3,4,-5,6].select{|n| n < 0}.max # => -2
+	puts arr_negative.max  							
 end
 
 max_negative_element [1,-2,3,4,-5,6]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти количество минимальных элементов.'
+p 'quantity_min_element [1,-2,3,4,-5,6,-5]'
+def quantity_min_element (arr)
 
-#p 'Дан целочисленный массив. Преобразовать его, прибавив к четным числам первый элемент. Первый и последний элементы массива не изменять.'
-#p 'adding_the_first_element_to_even_numbers [1,2,3,4,5,6]'
+	puts arr.count(arr.min)
+end
 
-#def adding_the_first_element_to_even_numbers (arr)
+quantity_min_element [1,-2,3,4,-5,6,-5]
+p '--------------'
+
+
+
 
 
 
