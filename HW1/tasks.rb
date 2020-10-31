@@ -158,6 +158,17 @@ quantity_min_element [1,-2,3,4,-5,6,-5]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти количество максимальных элементов.'
+p 'quantity_max_element [6,-2,3,4,6,6,-5]'
+def quantity_max_element (arr)
+
+	puts arr.count(arr.max)
+end
+
+quantity_max_element [6,-2,3,4,6,6,-5]
+p '--------------'
+
+
 
 
 
