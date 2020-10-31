@@ -71,8 +71,16 @@ end
 odd_even_parser [1,2,3,4,5,6]
 p '--------------'
 
+p 'Дан целочисленный массив. Найти минимальный четный элемент.'
+p 'min_even_element [1,2,3,4,5,6]'	
+def min_even_element (arr)
 
+	arr_even = arr.find_all{ |elem| elem % 2 == 0 }
+	puts arr_even.min
+end
 
+min_even_element [1,2,3,4,5,6]
+p '--------------'
 
 #p 'Дан целочисленный массив. Преобразовать его, прибавив к четным числам первый элемент. Первый и последний элементы массива не изменять.'
 #p 'adding_the_first_element_to_even_numbers [1,2,3,4,5,6]'
