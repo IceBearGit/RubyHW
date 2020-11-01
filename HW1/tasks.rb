@@ -439,3 +439,29 @@ factorial (6)
 p '--------------'
 
 
+p 'Дано натуральное число N. Если N - нечетное, то найти произведение 1*3*…*N; если N - четное, то найти произведение 2*4*…*N.'
+p "mult_even_odd (5)"
+p "mult_even_odd (4)"
+def mult_even_odd (n)
+	if n%2 != 0
+		count = 1
+		res = 1
+		while count <= n do
+  		res = res * count
+  		count += 2
+  		end
+  	else
+  		count = 2
+		res = 1
+		while count <= n do
+  		res = res * count
+  		count += 2
+  		end
+  	end
+  	p res
+end
+mult_even_odd (5)
+mult_even_odd (4)
+p '--------------'
+
+
