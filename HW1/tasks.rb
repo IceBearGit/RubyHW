@@ -398,13 +398,27 @@ p "quantity_odd_parser [1,2,3,4,5,6,7]"
 def quantity_odd_parser	(arr)
  	count = 0
 	arr.each do |digit|
-  	if (digit % 2) != 0
-  		count += 1
-	end
+  		if (digit % 2) != 0
+  			count += 1
+		end
 	end
 	p count
 end
 quantity_odd_parser [1,2,3,4,5,6,7]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти среднее арифметическое его элементов.'
+p "arithmetic_average [1,2,3,4,5,6,7]"
+
+def arithmetic_average (arr)
+	counter = 0
+	arr.each do |digit|
+		counter += digit
+	end
+	p counter / arr.count
+end
+arithmetic_average [1,2,3,4,5,6,7]
 p '--------------'
 
 
