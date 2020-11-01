@@ -362,3 +362,17 @@ even_parser [1,2,3,4,5,6]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти все нечетные элементы.'
+p "odd_parser [1,2,3,4,5,6]"
+
+def odd_parser	(arr)
+
+	puts "odd elements" 
+	arr.each do |digit|
+  	puts digit if (digit % 2) != 0
+	end
+end
+odd_parser [1,2,3,4,5,6]
+p '--------------'
+
+
