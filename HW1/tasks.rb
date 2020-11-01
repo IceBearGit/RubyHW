@@ -619,3 +619,23 @@ sort_cba [1,2,-3,4,5,-6,7]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти индекс первого минимального элемента.'
+p 'index_first_min_element [1,-20,6,4,-5,60,-5]'
+def index_first_min_element (arr)
+	p arr.index(arr.min)
+	
+end
+index_first_min_element [1,-20,6,4,-5,60,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти индекс первого максимального элемента.'
+p 'index_first_max_element [1,-20,6,4,-5,60,-5]'
+def index_first_max_element (arr)
+	p arr.index(arr.max)
+	
+end
+index_first_max_element [1,-20,6,4,-5,60,-5]
+p '--------------'
+
+
