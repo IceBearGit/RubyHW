@@ -376,3 +376,19 @@ odd_parser [1,2,3,4,5,6]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти количество четных элементов.'
+p "quantity_even_parser [1,2,3,4,5,6]"
+
+def quantity_even_parser	(arr)
+ 	count = 0
+	arr.each do |digit|
+  	if (digit % 2) == 0
+  		count += 1
+	end
+	end
+	p count
+end
+quantity_even_parser [1,2,3,4,5,6]
+p '--------------'
+
+
