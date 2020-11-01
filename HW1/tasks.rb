@@ -465,3 +465,17 @@ mult_even_odd (4)
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти среднее арифметическое модулей его элементов.'
+p "abs_average [1,2,-3,4,5,-6,7]"
+
+def abs_average (arr)
+	counter = 0
+	arr.each do |digit|
+		counter += digit.abs
+	end
+	p counter / arr.count
+end
+abs_average [1,2,-3,4,5,-6,7]
+p '--------------'
+
+
