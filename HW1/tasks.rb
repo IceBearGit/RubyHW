@@ -597,3 +597,15 @@ def shift_to_left1_pos (arr)
 end
 shift_to_left1_pos [1,2,-3,4,5,-6,7]
 p '--------------'
+
+
+p 'Дан целочисленный массив. Упорядочить его по возрастанию.'
+p "sort_abc [1,2,-3,4,5,-6,7]"
+def sort_abc (arr)
+	
+	p arr.sort
+end
+sort_abc [1,2,-3,4,5,-6,7]
+p '--------------'
+
+
