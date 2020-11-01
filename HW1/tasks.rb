@@ -493,3 +493,17 @@ sqr_average [1,2,-3,4,5,-6,7]
 p '--------------'
 
 
+p 'Дано целое число. Найти сумму его цифр.'
+p "sum_digits (123)"
+
+def sum_digits (n)
+	sum = 0;
+
+	while n > 0 do
+    sum += n % 10
+    n = (n / 10) - (n % 10) / 10
+    end
+    p sum
+end 
+sum_digits (123)
+p '--------------'
