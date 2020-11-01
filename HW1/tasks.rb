@@ -639,3 +639,23 @@ index_first_max_element [1,-20,6,4,-5,60,-5]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти индекс последнего минимального элемента.'
+p 'index_last_min_element [1,20,6,4,-5,60,-5]'
+def index_last_min_element (arr)
+	p arr.rindex(arr.min)
+	
+end
+index_last_min_element [1,20,6,4,-5,60,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти индекс последнего максимального элемента.'
+p 'index_last_max_element [1,-20,60,4,-5,60,-5]'
+def index_last_max_element (arr)
+	p arr.rindex(arr.max)
+	
+end
+index_last_max_element [1,-20,60,4,-5,60,-5]
+p '--------------'
+
+
