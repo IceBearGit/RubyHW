@@ -302,3 +302,25 @@ index_last_extreme_element [1,-20,6,4,-5,6,-5]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти два наибольших элемента.'
+p 'two_max_elements [1,20,6,4,-5,6,-5]'
+def two_max_elements (arr)
+	res = arr.sort.last 2
+	p res[0]
+	p res[1]
+end
+
+two_max_elements [1,20,6,4,-5,6,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти два наименьших элемента.'
+p 'two_min_elements [1,20,6,4,-5,6,-5]'
+def two_min_elements (arr)
+	res = arr.sort.first 2
+	p res[0]
+	p res[1]
+end
+
+two_min_elements [1,20,6,4,-5,6,-5]
+p '--------------'
