@@ -190,4 +190,115 @@ index_max_element [1,-2,3,4,-5,6,-3]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти количество элементов, расположенных после последнего максимального.'
+p 'quantity_after_last_max_element [1,-2,3,4,-5,6,-3]'
+def quantity_after_last_max_element (arr)
+
+	p arr.reverse.index(arr.max)
+	
+end
+quantity_after_last_max_element [1,-2,3,4,-5,6,-3]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных перед последним минимальным.'
+p 'quantity_before_last_min_element [1,-2,3,4,-5,6,-5]'
+def quantity_before_last_min_element (arr)
+	p arr.rindex(arr.min)
+end
+
+quantity_before_last_min_element [1,-2,3,4,-5,6,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных перед последним максимальным.'
+p 'quantity_before_last_max_element [1,-2,6,4,-5,6,-5]'
+def quantity_before_last_max_element (arr)
+	p arr.rindex(arr.max)
+end
+
+quantity_before_last_max_element [1,-2,6,4,-5,6,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных после последнего минимального.'
+p 'quantity_after_last_min_element [1,-2,-5,4,-5,6,-3]'
+def quantity_after_last_min_element (arr)
+
+	p arr.reverse.index(arr.min)
+	
+end
+quantity_after_last_min_element [1,-2,-5,4,-5,6,-3]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных перед первым минимальным.'
+p 'quantity_before_first_min_element [1,-2,3,4,-5,6,-5]'
+def quantity_before_first_min_element (arr)
+	p arr.index(arr.min)
+end
+
+quantity_before_first_min_element [1,-2,3,4,-5,6,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных перед первым максимальным.'
+p 'quantity_before_first_max_element [1,-2,6,4,-5,6,-5]'
+def quantity_before_first_max_element (arr)
+	p arr.index(arr.max)
+end
+
+quantity_before_first_max_element [1,-2,6,4,-5,6,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных после первого максимального.'
+p 'quantity_after_first_max_element [1,-2,6,4,-5,6,-3]'
+def quantity_after_first_max_element (arr)
+
+	p arr.reverse.rindex(arr.max)
+	
+end
+quantity_after_first_max_element [1,-2,6,4,-5,6,-3]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти количество элементов, расположенных после первого минимального.'
+p 'quantity_after_first_min_element [-5,-2,6,4,-5,6,-3]'
+def quantity_after_first_min_element (arr)
+
+	p arr.reverse.rindex(arr.min)
+	
+end
+quantity_after_first_min_element [-5,-2,6,4,-5,6,-3]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти индекс первого экстремального (то есть минимального или максимального) элемента.'
+p 'index_first_extreme_element [1,-20,6,4,-5,60,-5]'
+def index_first_extreme_element (arr)
+	index_min = arr.index(arr.min)
+	index_max = arr.index(arr.max)
+	p index_min if index_min < index_max
+	p index_max if index_min > index_max
+	
+end
+
+index_first_extreme_element [1,-20,6,4,-5,60,-5]
+p '--------------'
+
+
+p 'Дан целочисленный массив. Найти индекс последнего экстремального (то есть минимального или максимального) элемента.'
+p 'index_last_extreme_element [1,-20,6,4,-5,6,-5]'
+def index_last_extreme_element (arr)
+	index_min = arr.rindex(arr.min)
+	index_max = arr.rindex(arr.max)
+	p index_min if index_min > index_max
+	p index_max if index_min < index_max
+	
+end
+
+index_last_extreme_element [1,-20,6,4,-5,6,-5]
+p '--------------'
+
 
