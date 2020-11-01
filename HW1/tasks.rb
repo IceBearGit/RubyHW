@@ -422,3 +422,20 @@ arithmetic_average [1,2,3,4,5,6,7]
 p '--------------'
 
 
+p 'Дано натуральное число N. Найти результат следующего произведения 1*2*…*N.'
+p "factorial (6)"
+
+def factorial (n)
+	count = 1
+	res = 1
+	while count <= n do
+  	res = res * count
+  	count += 1
+  	end
+  	p res
+end
+
+factorial (6)
+p '--------------'
+
+
