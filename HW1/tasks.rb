@@ -348,3 +348,17 @@ max_element_in_range [1,20,6,4,-5,6,-5],0,3
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти все четные элементы.'
+p "even_parser [1,2,3,4,5,6]"
+
+def even_parser	(arr)
+
+	puts "even elements" 
+	arr.each do |digit|
+  	puts digit if (digit % 2) == 0
+	end
+end
+even_parser [1,2,3,4,5,6]
+p '--------------'
+
+
