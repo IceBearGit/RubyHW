@@ -507,3 +507,21 @@ def sum_digits (n)
 end 
 sum_digits (123)
 p '--------------'
+
+
+p 'Дано целое число. Найти произведение его цифр.'
+p "mult_digits (1234)"
+
+def mult_digits (n)
+	mult = 1;
+
+	while n > 0 do
+    mult *= n % 10
+    n = (n / 10) - (n % 10) / 10
+    end
+    p mult
+end 
+mult_digits (1234)
+p '--------------'
+
+
