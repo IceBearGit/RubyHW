@@ -551,3 +551,16 @@ repl_positive_to_max [1,2,-3,4,5,-6,7]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Заменить все отрицательные элементы на значение минимального.'
+p "repl_negative_to_min [1,2,-3,4,5,-6,7]"
+def repl_negative_to_min (arr)
+
+	min_elem = arr.min
+	a = []
+	arr.each { |elem| a << (elem < 0 ? min_elem : elem) }
+	p a.to_s
+end
+repl_negative_to_min [1,2,-3,4,5,-6,7]
+p '--------------'
+
+
