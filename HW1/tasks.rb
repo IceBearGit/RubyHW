@@ -479,3 +479,17 @@ abs_average [1,2,-3,4,5,-6,7]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Найти среднее арифметическое квадратов его элементов.'
+p "sqr_average [1,2,-3,4,5,-6,7]"
+
+def sqr_average (arr)
+	counter = 0
+	arr.each do |digit|
+		counter += digit ** 2
+	end
+	p counter / arr.count
+end
+sqr_average [1,2,-3,4,5,-6,7]
+p '--------------'
+
+
