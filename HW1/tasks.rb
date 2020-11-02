@@ -659,3 +659,18 @@ index_last_max_element [1,-20,60,4,-5,60,-5]
 p '--------------'
 
 
+p 'Дан целочисленный массив. Преобразовать его, прибавив к четным числам первый элемент. Первый и последний элементы массива не изменять.'
+p "even_plus_first_elem [1,-20,60,4,-5,60,-50]"
+def even_plus_first_elem (arr)
+
+	
+	arr_new = []
+	arr_new << arr[0]
+	arr[1...arr.count-1].each { |elem| arr_new << (elem % 2 == 0 ? elem + arr[0] : elem) }
+	arr_new << arr[arr.count-1]
+	p arr_new.to_s
+	
+end
+even_plus_first_elem [1,-20,60,4,-5,60,-50]
+p '--------------'
+
