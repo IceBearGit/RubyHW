@@ -12,15 +12,15 @@ p array.sort
 p '---------------------------'
 p array.sort { |x, y| y <=> x }
 p '---------------------------'
-p array.reject {|x| x.odd?}
+p array.reject { |x| x.odd? }
 p '---------------------------'
-p array.find_all {|x| x % 3 == 0 }
+p array.find_all { |x| (x % 3).zero? }
 p '---------------------------'
 p array.uniq
 p '---------------------------'
 p array.map { |x| x.to_f / 10 }
 p '---------------------------'
-p array.find_all {|x| (x < 27) && (x > 0)}.map { |x| (x + 9).to_s(36) }
+p array.find_all { |x| (x < 27) && (x > 0) }.map { |x| (x + 9).to_s(36) }
 p '---------------------------'
 array[array.index(array.min)], array[array.index(array.max)] = array.max, array.min
 p array
