@@ -22,8 +22,11 @@ p array.map { |x| x.to_f / 10 }
 p '---------------------------'
 p array.find_all { |x| (x < 27) && (x > 0) }.map { |x| (x + 9).to_s(36) }
 p '---------------------------'
-array[array.index(array.min)], array[array.index(array.max)] = array.max, array.min
-p array
+def min_max_excange(array)
+  array[array.index(array.min)], array[array.index(array.max)] = array.max, array.min
+  p array
+end
+min_max_excange(array)
 p '---------------------------'
 p array[0...array.index(array.min)]
 p '---------------------------'
