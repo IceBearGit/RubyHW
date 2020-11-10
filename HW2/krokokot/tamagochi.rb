@@ -21,12 +21,12 @@ class Pet
     else
       puts 'I am not ill!'
       puts "-------------------"
+      @agress += rand(20)
     end
     @play -= rand(20)
     @sleep -= rand(20) 
     @eat -= rand(20)
     @mood -= rand(20)
-    @agress += rand(20)
     passageOfTime
   end
 
@@ -43,7 +43,6 @@ class Pet
     @sleep -= rand(20) 
     @eat -= rand(20)
     @mood -= rand(20)
-    @agress += rand(20)
     passageOfTime
   end
  
@@ -60,7 +59,7 @@ class Pet
     @play -= rand(20)
     @eat -= rand(20)
     @mood -= rand(20)
-    @agress += rand(20)
+    @agress -= rand(20)
     passageOfTime
   end
 
@@ -70,16 +69,17 @@ class Pet
       puts "Krokokot eating!"
       puts "-------------------"
       @eat = 100
+      @agress -= rand(20)
     else
       puts 'Krokokot turned away and wagged his tail'
       puts "-------------------"
+      @agress += rand(20)
       @need_toilet = true
     end
     @health -= rand(20) 
     @play -= rand(20)
     @sleep -= rand(20) 
     @mood -= rand(20)
-    @agress += rand(20)
     passageOfTime
   end
 
@@ -87,38 +87,44 @@ class Pet
     if @need_toilet
       puts 'I have done it'
       puts "-------------------"
+      @agress -= rand(20)
     else
       puts 'I do not want to do this'
       puts "-------------------"
+      @agress += rand(20)
     end
     @need_toilet = false
     passageOfTime
   end
 
-  def status_bar
-    puts "\nHealth\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t#{@pet.sleep}\nPlay\t\t#{@pet.play}\nMood\t\t#{@pet.mood}\nAgress\t\t#{@pet.agress}"
+  def is_dead?
+    @health <= 0 || @sleep <= 0 || @play <= 0 || @eat <= 0
   end
 
-  def is_dead?
-    @health == 0 || @sleep == 0 || @play == 0 || @eat == 0
+  def is_owner_dead?
+    @agress > 50
   end
   
   private
   
   def hungry?
-    @eat <= 20
+    @eat <= 30
   end
   
   def boring?
-    @play <= 20
+    @play <= 30
   end
 
   def healthy?
-    @health <= 20
+    @health <= 30
   end
 
   def sleepy?
-    @sleep <= 20
+    @sleep <= 30
+  end
+
+  def agressive?
+    @agress >= 30
   end
   
   def passageOfTime
@@ -127,25 +133,7 @@ class Pet
     puts('I`m so boring!') if boring?
     puts('I`m feel bad!') if healthy?
     puts('I need to sleep!') if sleepy?
-    # dead  
-  end
-
-  def dead
-    if pet.health <= 0
-      pet.health = 0
-      print "Krokokot #{pet.name}. Cause of death: disease !!! Game over!"
-    elsif pet.eat <= 0
-      pet.eat = 0
-      print "Krokokot #{pet.name}. Cause of death: hunger!!! Game over!"
-    elsif pet.sleep <= 0
-      pet.sleep = 0
-      print "Krokokot #{pet.name}. Cause of death: insomnia!!! Game over!"
-    elsif pet.play <= 0
-      pet.play = 0
-      print "Krokokot #{pet.name}. Cause of death: boredom!!! Game over!"
-    end
-  end
-
-  
-  
+    puts('I may kill you!') if agressive?
+    puts('Pss, where is a toilet here?') if toilet?
+  end  
 end

@@ -18,7 +18,10 @@ class Ui
     puts "-------------------"
     while true
       if @pet.is_dead?
-        @dead
+        #cause_of_dead
+        break
+      elsif @pet.is_owner_dead?
+        puts "Your krokokot killed you. R.I.P."
         break
       end
 
@@ -39,12 +42,12 @@ class Ui
         when "4"
           puts "Selected - 4 "
           puts "-------------------"
-          @pet.play  
+          @pet.playing 
         when "5"
           puts "Exit programm"
           break
         when ""
-          print "You do not selected anything!"
+          puts "You do not selected anything!"
           puts "-------------------"
           @pet.health -= rand(20)
           @pet.eat -= rand(20)
@@ -56,8 +59,9 @@ class Ui
           puts "-------------------"
         end
       end
+    
   end
-  
+
   def init_pet
     print 'First of all, you must give your pet a name: '
     name = gets.chomp().to_s
@@ -65,8 +69,8 @@ class Ui
   end
   
   def ask_menu
-    puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nFatigue\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}"
-    print "-------------------"
+    status_bar
+      print "-------------------"
       puts "\nWhat do you do with #{@pet.name}:
       1 - Visit a doctor
       2 - Give some food
@@ -76,6 +80,28 @@ class Ui
       Press enter if to do nothing..."
       puts "------------------------------------------------"
       action = gets.chomp().to_s
+  end
+
+  def status_bar
+    puts 'Status'
+    puts "------------------------------------------------"
+    puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}\nMood\t\t#{@pet.mood}\nAgressive\t#{@pet.agress}"
+  end
+
+  def cause_of_dead
+    if @pet.health <= 0
+      @pet.health = 0
+      print "Krokokot #{pet.name}. Cause of death: disease !!! Game over!"
+    elsif @pet.eat <= 0
+      @pet.eat = 0
+      print "Krokokot #{pet.name}. Cause of death: hunger!!! Game over!"
+    elsif @pet.sleep <= 0
+      @pet.sleep = 0
+      print "Krokokot #{pet.name}. Cause of death: insomnia!!! Game over!"
+    elsif @pet.play <= 0
+      @pet.play = 0
+      print "Krokokot #{pet.name}. Cause of death: boredom!!! Game over!"
+    end
   end
 end
 
