@@ -7,7 +7,7 @@ class Ui
     puts "------------------------------------------------"
     puts ("Just born your krokokot " + @pet.name)
     puts "------------------------------------------------"
-    puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nFatigue\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}"
+    puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}"
     puts ""
     puts "------------------------------------------------"
     puts "Krokokot say: "
@@ -18,7 +18,7 @@ class Ui
     puts "-------------------"
     while true
       if @pet.is_dead?
-        #cause_of_dead
+        @pet.cause_of_dead
         break
       elsif @pet.is_owner_dead?
         puts "Your krokokot killed you. R.I.P."
@@ -30,7 +30,7 @@ class Ui
         when "1"
           puts "Selected - 1 "
           puts "-------------------"
-          @pet.treating
+          @pet.treatment
         when "2"
           puts "Selected - 2 "
           puts "-------------------"
@@ -44,6 +44,10 @@ class Ui
           puts "-------------------"
           @pet.playing 
         when "5"
+          puts "Selected - 5 "
+          puts "-------------------"
+          @pet.toilet
+        when "6"
           puts "Exit programm"
           break
         when ""
@@ -76,7 +80,8 @@ class Ui
       2 - Give some food
       3 - Send to sleep
       4 - Play with him
-      5 - Exit 
+      5 - Toilet for krokokot
+      6 - Exit 
       Press enter if to do nothing..."
       puts "------------------------------------------------"
       action = gets.chomp().to_s
@@ -85,24 +90,10 @@ class Ui
   def status_bar
     puts 'Status'
     puts "------------------------------------------------"
-    puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}\nMood\t\t#{@pet.mood}\nAgressive\t#{@pet.agress}"
+    puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}\nAgressive\t#{@pet.agress}"
   end
 
-  def cause_of_dead
-    if @pet.health <= 0
-      @pet.health = 0
-      print "Krokokot #{pet.name}. Cause of death: disease !!! Game over!"
-    elsif @pet.eat <= 0
-      @pet.eat = 0
-      print "Krokokot #{pet.name}. Cause of death: hunger!!! Game over!"
-    elsif @pet.sleep <= 0
-      @pet.sleep = 0
-      print "Krokokot #{pet.name}. Cause of death: insomnia!!! Game over!"
-    elsif @pet.play <= 0
-      @pet.play = 0
-      print "Krokokot #{pet.name}. Cause of death: boredom!!! Game over!"
-    end
-  end
+  
 end
 
 Ui.new.start

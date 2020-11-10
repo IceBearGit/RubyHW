@@ -1,5 +1,5 @@
 class Pet
-  attr_accessor :name, :health, :play, :sleep, :eat, :mood, :agress
+  attr_accessor :name, :health, :play, :sleep, :eat, :agress
 
   def initialize (name)
     @name = name
@@ -7,12 +7,11 @@ class Pet
     @play = 100
     @sleep = 100 
     @eat = 100
-    @mood = 100
     @agress = 0
     @need_toilet = false
   end
 
-  def treating
+  def treatment
     if (@health < 100)
       @health = 100
       puts "Krokokot treating!"
@@ -26,7 +25,6 @@ class Pet
     @play -= rand(20)
     @sleep -= rand(20) 
     @eat -= rand(20)
-    @mood -= rand(20)
     passageOfTime
   end
 
@@ -42,7 +40,6 @@ class Pet
     @health -= rand(20) 
     @sleep -= rand(20) 
     @eat -= rand(20)
-    @mood -= rand(20)
     passageOfTime
   end
  
@@ -58,7 +55,6 @@ class Pet
     @health -= rand(20) 
     @play -= rand(20)
     @eat -= rand(20)
-    @mood -= rand(20)
     @agress -= rand(20)
     passageOfTime
   end
@@ -79,7 +75,6 @@ class Pet
     @health -= rand(20) 
     @play -= rand(20)
     @sleep -= rand(20) 
-    @mood -= rand(20)
     passageOfTime
   end
 
@@ -88,12 +83,12 @@ class Pet
       puts 'I have done it'
       puts "-------------------"
       @agress -= rand(20)
+      @need_toilet = false
     else
       puts 'I do not want to do this'
       puts "-------------------"
       @agress += rand(20)
     end
-    @need_toilet = false
     passageOfTime
   end
 
@@ -103,6 +98,22 @@ class Pet
 
   def is_owner_dead?
     @agress > 50
+  end
+
+  def cause_of_dead
+    if @health <= 0
+      @health = 0
+      print "Krokokot #{@name}. Cause of death: disease !!! Game over!"
+    elsif @eat <= 0
+      @eat = 0
+      print "Krokokot #{@name}. Cause of death: hunger!!! Game over!"
+    elsif @sleep <= 0
+      @sleep = 0
+      print "Krokokot #{@name}. Cause of death: insomnia!!! Game over!"
+    elsif @play <= 0
+      @play = 0
+      print "Krokokot #{@name}. Cause of death: boredom!!! Game over!"
+    end
   end
   
   private
@@ -127,6 +138,10 @@ class Pet
     @agress >= 30
   end
   
+  def toiletty?
+    @need_toilet == true
+  end
+
   def passageOfTime
     p "some hours later"
     puts('I`m so  hungry!') if hungry?
@@ -134,6 +149,7 @@ class Pet
     puts('I`m feel bad!') if healthy?
     puts('I need to sleep!') if sleepy?
     puts('I may kill you!') if agressive?
-    puts('Pss, where is a toilet here?') if toilet?
+    puts('Pss, where is a toilet here?') if toiletty?
+    puts "------------------------------------------------"
   end  
 end
