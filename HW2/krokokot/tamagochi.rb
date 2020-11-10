@@ -97,7 +97,7 @@ class Pet # class of home pet
   end
 
   def is_owner_dead?
-    @agress > 50
+    @agress > 30
   end
 
   def cause_of_dead

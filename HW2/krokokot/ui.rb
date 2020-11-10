@@ -50,7 +50,7 @@ class Ui
           puts 'Exit programm'
           break
         when ''
-          puts 'You do not selected anything!'
+          puts 'Some hours ago!'
           puts '-------------------'
           @pet.health -= rand(20)
           @pet.eat -= rand(20)
@@ -80,7 +80,7 @@ class Ui
       4 - Play with him
       5 - Toilet for krokokot
       6 - Exit
-      Press enter if to do nothing..."
+      Press enter to spent some hours without kroko..."
       puts '------------------------------------------------'
       action = gets.chomp().to_s
   end
