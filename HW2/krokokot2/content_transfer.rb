@@ -35,17 +35,17 @@ class Content_trans
 
   def content_transfer
     content = File.read("index.html")
-    File.open(index.html, 'w') {|f| 
-      content.gsub!('{{name}}', @pet.name) 
-      content.gsub!('{{health}}', @pet.health.to_s) 
-      content.gsub!('{{eat}}', @pet.eat.to_s) 
-      content.gsub!('{{sleep}}', @pet.sleep.to_s) 
-      content.gsub!('{{play}}', @pet.play.to_s) 
-      content.gsub!('{{agressive}}', @pet.agress.to_s) 
+    html_new = "index_new.html"
+    File.open(html_new, 'w') {|f|
+      content.gsub!('{{name}}', @pet.name)
+      content.gsub!('{{health}}', @pet.health.to_s)
+      content.gsub!('{{eat}}', @pet.eat.to_s)
+      content.gsub!('{{sleep}}', @pet.sleep.to_s)
+      content.gsub!('{{play}}', @pet.play.to_s)
+      content.gsub!('{{agressive}}', @pet.agress.to_s)
+      content.gsub!('{{transfer}}', @pet.transfer.join('<br>'))
       content.gsub!('{{smile}}', @pet.smile) 
-      content.gsub!('{{transfer}}', @pet.transfer.join('<br>')) 
-      f.puts content
-    }
+      f.puts content}
   end
 
 end
