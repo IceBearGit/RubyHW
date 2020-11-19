@@ -43,7 +43,7 @@ class Content_trans
       content.gsub!('{{sleep}}', @pet.sleep.to_s)
       content.gsub!('{{play}}', @pet.play.to_s)
       content.gsub!('{{agressive}}', @pet.agress.to_s)
-      content.gsub!('{{transfer}}', @pet.transfer.join('<br>'))
+      content.gsub!('{{transfer}}', @pet.transfer)
       content.gsub!('{{smile}}', @pet.smile) 
       f.puts content}
   end

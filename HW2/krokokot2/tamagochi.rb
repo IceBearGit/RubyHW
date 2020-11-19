@@ -9,7 +9,7 @@ class Pet # class of home pet
     @eat = 100
     @agress = 0
     @need_toilet = false
-    @transfer = []    
+    @transfer = ''    
     @smile = '&#128525;'
   end
 
@@ -19,12 +19,12 @@ class Pet # class of home pet
       puts 'Krokokot treating!'
       puts 'I am feel better!'
       puts '-------------------'
-      @transfer << 'Krokokot treating! I am feel better!'
+      @transfer = 'Krokokot treating! I am feel better!'
       @smile = '&#128548;'
     else
       puts 'I am not ill!'
       puts '-------------------'
-      @transfer << 'I am not ill!'
+      @transfer = 'I am not ill!'
       @smile = '&#128567;'
       @agress += rand(20)
     end
@@ -38,13 +38,13 @@ class Pet # class of home pet
     if @agress > 30
       puts 'Krokokot bit you! Give him some food!'
       puts '-------------------'
-      @transfer << 'Krokokot bit you! Give him some food!'
+      @transfer = 'Krokokot bit you! Give him some food!'
       @smile = '&#128544;'
     else
       @play = 100
       print 'Krokokot playing!'
       puts '-------------------'
-      @transfer << 'Krokokot playing!'
+      @transfer = 'Krokokot playing!'
       @smile = '&#128525;'
     end
     @health -= rand(20)
@@ -58,12 +58,12 @@ class Pet # class of home pet
       @sleep = 100
       puts 'Krokokot sleeping! zzzzzzz..zzz'
       puts '-------------------'
-      @transfer << 'Krokokot sleeping! zzzzzzz..zzz'
+      @transfer = 'Krokokot sleeping! zzzzzzz..zzz'
       @smile = '&#128555;'
     else
       puts 'I do not want to sleep. Play with me!'
       puts '-------------------'
-      @transfer << 'I do not want to sleep. Play with me!'
+      @transfer = 'I do not want to sleep. Play with me!'
       @smile = '&#128555;'
     end
     @health -= rand(20)
@@ -78,14 +78,14 @@ class Pet # class of home pet
       puts 'nam nam nam!!!'
       puts 'Krokokot eating!'
       puts '-------------------'
-      @transfer << 'Krokokot eating! nam nam nam!!!'
+      @transfer = 'Krokokot eating! nam nam nam!!!'
       @smile = '&#128523;'
       @eat = 100
       @agress -= rand(20)
     else
       puts 'Krokokot turned away and wagged his tail'
       puts '-------------------'
-      @transfer << 'Krokokot turned away and wagged his tail'
+      @transfer = 'Krokokot turned away and wagged his tail'
       @smile = '&#128532;'
       @agress += rand(20)
       @need_toilet = true
@@ -100,14 +100,14 @@ class Pet # class of home pet
     if @need_toilet
       puts 'I have done it'
       puts '-------------------'
-      @transfer << 'I have done it'
+      @transfer = 'I have done it'
       @smile = '&#128566;'
       @agress -= rand(20)
       @need_toilet = false
     else
       puts 'I do not want to do this'
       puts '-------------------'
-      @transfer << 'I do not want to do this'
+      @transfer = 'I do not want to do this'
       @smile = '&#128547;'
       @agress += rand(20)
     end
@@ -126,22 +126,22 @@ class Pet # class of home pet
     if @health <= 0
       @health = 0
       puts "Krokokot #{@name}. Cause of death: disease !!! Game over!"
-      @transfer << "Krokokot #{@name}. Cause of death: disease !!! Game over!"
+      @transfer = "Krokokot #{@name}. Cause of death: disease !!! Game over!"
       @smile = '&#128591;'
     elsif @eat <= 0
       @eat = 0
       puts "Krokokot #{@name}. Cause of death: hunger!!! Game over!"
-      @transfer << "Krokokot #{@name}. Cause of death: hunger!!! Game over!"
+      @transfer = "Krokokot #{@name}. Cause of death: hunger!!! Game over!"
       @smile = '&#128591;'
     elsif @sleep <= 0
       @sleep = 0
       puts "Krokokot #{@name}. Cause of death: insomnia!!! Game over!"
-      @transfer << "Krokokot #{@name}. Cause of death: insomnia!!! Game over!"
+      @transfer = "Krokokot #{@name}. Cause of death: insomnia!!! Game over!"
       @smile = '&#128591;'
     elsif @play <= 0
       @play = 0
       puts "Krokokot #{@name}. Cause of death: boredom!!! Game over!"
-      @transfer << "Krokokot #{@name}. Cause of death: boredom!!! Game over!"
+      @transfer = "Krokokot #{@name}. Cause of death: boredom!!! Game over!"
       @smile = '&#128591;'
     end
   end
@@ -181,12 +181,11 @@ class Pet # class of home pet
     puts('I may kill you!') if agressive?
     puts('Pss, where is a toilet here?') if toiletty?
     puts '------------------------------------------------'
-    @transfer << 'I`m so  hungry!' if hungry?
-    @transfer << 'I`m so boring!' if boring?
-    @transfer << 'I`m feel bad!' if healthy?
-    @transfer << 'I need to sleep!' if sleepy?
-    @transfer << 'I may kill you!' if agressive?
-    @transfer << 'Pss, where is a toilet here?' if toiletty?
-    @transfer.each{ |r| puts Array(r).join}
+    @transfer = 'I`m so  hungry!' if hungry?
+    @transfer = 'I`m so boring!' if boring?
+    @transfer = 'I`m feel bad!' if healthy?
+    @transfer = 'I need to sleep!' if sleepy?
+    @transfer = 'I may kill you!' if agressive?
+    @transfer = 'Pss, where is a toilet here?' if toiletty?
   end
 end
