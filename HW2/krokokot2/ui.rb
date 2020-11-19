@@ -28,7 +28,7 @@ class Ui
         break
       elsif @pet.is_owner_dead?
         puts 'Your krokokot killed you. R.I.P.'
-        @pet.transfer << "Your krokokot killed you. R.I.P."
+        @pet.transfer = "Your krokokot killed you. R.I.P."
         @smile = '&#128591;'
         break
       end
@@ -40,6 +40,7 @@ class Ui
           puts '-------------------'
           @pet.treatment
           Content_trans.new(@pet).content_transfer
+          @transfer = 'Selected - 1 '
         when '2'
           puts 'Selected - 2 '
           puts '-------------------'
