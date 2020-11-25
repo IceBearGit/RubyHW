@@ -1,5 +1,5 @@
 class Pet # class of home pet
-  attr_accessor :name, :health, :play, :sleep, :eat, :agress, :smile, :speak, :author
+  attr_accessor :name, :health, :play, :sleep, :eat, :agress, :smile, :speak, :author, :guest_role
 
   def initialize(name)
     @name = name
@@ -12,6 +12,7 @@ class Pet # class of home pet
     @smile = '&#128525;'
     @speak = 'Hi, I am Krokokot'
     @author = ''
+    @guest_role = ''
   end
 
   def treatment
@@ -156,6 +157,49 @@ class Pet # class of home pet
     end
   end
   
+  def change_name
+    if @guest_role == "admin" || @guest_role == "superadmin"
+      puts "Please enter a new name:"
+      @name = gets.chomp.capitalize
+      puts("New name for Krokokot is #{@name}")
+    else
+      puts("You have no right for this")
+    end
+  end
+
+  def superadmin(action)
+    
+    if @guest_role == "superadmin"
+      case action
+      when "kill"
+        @pet.is_dead = true
+      when "reset"
+        @health = 100
+        @play = 100
+        @sleep = 100
+        @eat = 100
+        @agress = 0
+        @need_toilet = false  
+        @smile = '&#128525;'
+        @speak = 'Hi, I am Krokokot'
+      else
+        puts "Please enter Krokokots parameters:"
+        print "Health: "
+        @health = gets.chomp.to_i
+        print "Play: "
+        @play = gets.chomp.to_i
+        print "Sleep: "
+        @sleep= gets.chomp.to_i
+        print "Hunger: "
+        @eat = gets.chomp.to_i
+        print "Agressive: "
+        @agress = gets.chomp.to_i
+      end
+    else
+      puts("You have no right for this")
+    end
+  end
+
   private
   
   def hungry?

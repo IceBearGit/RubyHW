@@ -1,0 +1,12 @@
+---
+:title: tamagochi
+:characteristics:
+- :health: 100
+  :play: 100
+  :sleep: 100
+  :eat: 100
+  :agress: 0
+:user:
+  :name: superadmin
+  :pass: '12345'
+  :role: superadmin

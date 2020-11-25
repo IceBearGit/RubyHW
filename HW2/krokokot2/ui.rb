@@ -1,9 +1,30 @@
 require_relative 'tamagochi' # operated menu for pet
-require_relative 'content_transfer' 
+require 'content_transfer'
+require 'yaml'
 
 class Ui
+
+  DATABASE = [
+  {
+    name: "",
+    pass: "",
+    role: "guest"
+  },
+  {
+    name: "admin",
+    pass: "5555",
+    role: "admin"
+  },
+  {
+    name: "superadmin",
+    pass: "12345",
+    role: "superadmin"
+  }
+]
+
   def start
     init_pet
+    autorization
     puts '------------------------------------------------'
     puts("Just born your krokokot " + @pet.name)
     puts '------------------------------------------------'
@@ -11,7 +32,7 @@ class Ui
     puts ''
     puts '------------------------------------------------'
     puts 'Krokokot say: '
-    puts "Hi, my name is #{@name}"
+    puts "Hi, my name is #{@pet.name}"
     puts 'I am krokokot and your best friend. But if you do not give me a food and play with me, i will eat you :)'
     puts "------------------------------------------------"
     puts ''
@@ -103,6 +124,21 @@ class Ui
         when '6'
           puts 'Exit programm'
           break
+
+        when 'chname'
+          puts 'Selected - 7 '
+          puts '-------------------'
+          @pet.change_name
+
+        when 'kill'
+          if @guest_role == "superadmin"
+            puts 'You killed your pet '
+            puts '-------------------'
+            start
+          else
+          puts("You have no right for this")
+          end
+
         when ''
           puts 'Some hours ago!'
           puts '-------------------'
@@ -136,6 +172,15 @@ class Ui
       4 - Play with him
       5 - Toilet for krokokot
       6 - Exit
+      -----------------------------------------
+      Function for admin:
+      'chname' - Change name of Krokokot
+      -----------------------------------------
+      Function for superadmin:
+      'chname' - Change name of Krokokot
+      'kill' - Kill the pet
+      'change' - Change owner
+      'reset' - Back to default values
       Press enter to spent some hours without kroko..."
       puts '------------------------------------------------'
       action = gets.chomp().to_s
@@ -147,11 +192,34 @@ class Ui
     puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}\nAgressive\t#{@pet.agress}"
   end
 
-  
+  def autorization
+  authorization = ""
+    until authorization == "exit" || @pet.guest_role != ""
+      puts "Please enter your username and password to start"
+      puts "Enter your name:"
+      login_name = gets.chomp
+      exit if login_name == "exit"
+      puts "Enter your password:"
+      login_pass = gets.chomp
+
+      user = DATABASE.find { |f| f[:name] == login_name && f[:pass] == login_pass }
+      if user.nil?
+        puts "Wrong name or password. Input correct data or enter 'exit' to leave program"
+      else
+        @pet.guest_role = user[:role]
+        save_data = {title: "tamagochi",
+                     characteristics: [{health: @pet.health,
+                                    play: @pet.play,
+                                    sleep: @pet.sleep,
+                                    eat: @pet.eat,
+                                    agress: @pet.agress,}],
+                     user: user}
+
+        File.open("user.yml", "w") { |file| file.write(save_data.to_yaml) }
+        puts "You logged in as #{@pet.guest_role}"
+      end
+  end
 
 end
-
-Ui.new.start
-
-
-
+end
+Ui.new.start()
