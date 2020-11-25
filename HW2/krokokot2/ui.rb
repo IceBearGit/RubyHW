@@ -1,6 +1,5 @@
 require_relative 'tamagochi' # operated menu for pet
-require_relative 'content_transfer' #clone to html
-require 'cgi'
+require_relative 'content_transfer' 
 
 class Ui
   def start
@@ -19,9 +18,7 @@ class Ui
     puts '-------------------'
     print 'Give the name to your file: '
     file_name = gets.chomp().to_s
-    html = Content_trans.new(@pet)
-    html.create_page(file_name)
-
+    
     while true
       if @pet.is_dead?
         @pet.cause_of_dead
@@ -32,35 +29,77 @@ class Ui
         @smile = '&#128591;'
         break
       end
+      input_string = "
+<header>
+  <span>#{@pet.name}</span>
+</header>
+<main>
+  <section>
+    <ul>
+      <li>Health: <strong>#{@pet.health}</strong></li>
+      <li>Eat: <strong>#{@pet.eat}</strong></li>
+      <li>Sleep: <strong>#{@pet.sleep}%</strong></li>
+      <li>Play: <strong>#{@pet.play}%</strong></li>
+      <li>Agressive: <strong>#{@pet.agress}%</strong></li>
+    </ul>
+  </section>
 
+  <article>
+    <div>
+      <p>What happened:</p>
+      <p>#{@pet.author}</p>
+    </div>
+    <div>
+      <p>Pet speak:</p>
+      <p>#{@pet.speak}</p>
+    </div>
+  </article>
+  <aside>
+    <p>#{@pet.smile}</p>
+  </aside>
+</main>
+<footer>
+  <p>List of available commands:</p>
+  <section>  
+    <ul>
+      <li>1 - Visit a doctor</li>
+      <li>2 - Give some food</li>
+      <li>3 - Send to sleep</li>
+      <li>4 - Play with him</li>
+      <li>5 - Toilet for krokokot</li>
+      <li>6 - Exit</li>
+    </ul>
+  </section>
+  <p>Press enter to spent some hours without kroko...
+  "
+    content_transfer(input_string, file_name, true)
       action = ask_menu
         case action
         when '1'
           puts 'Selected - 1 '
           puts '-------------------'
           @pet.treatment
-          Content_trans.new(@pet).content_transfer
-          @transfer = 'Selected - 1 '
+          
         when '2'
           puts 'Selected - 2 '
           puts '-------------------'
           @pet.feed
-          Content_trans.new(@pet).content_transfer
+          
         when '3'
           puts 'Selected - 3 '
           puts '-------------------'
           @pet.sleeping
-          Content_trans.new(@pet).content_transfer
+          
         when '4'
           puts 'Selected - 4 '
           puts '-------------------'
           @pet.playing 
-          Content_trans.new(@pet).content_transfer
+          
         when '5'
           puts 'Selected - 5 '
           puts '-------------------'
           @pet.toilet
-          Content_trans.new(@pet).content_transfer
+          
         when '6'
           puts 'Exit programm'
           break
@@ -88,6 +127,7 @@ class Ui
   
   def ask_menu
     status_bar
+    
       print '-------------------'
       puts "\nWhat do you do with #{@pet.name}:
       1 - Visit a doctor
@@ -107,6 +147,11 @@ class Ui
     puts "\nHealth\t\t#{@pet.health}\nEat\t\t#{@pet.eat}\nSleep\t\t#{@pet.sleep}\nPlay\t\t#{@pet.play}\nAgressive\t#{@pet.agress}"
   end
 
+  
+
 end
 
 Ui.new.start
+
+
+
