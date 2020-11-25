@@ -1,4 +1,5 @@
-class Pet # class of home pet
+# class of home pet
+class Pet 
   attr_accessor :name, :health, :play, :sleep, :eat, :agress, :smile, :speak, :author, :guest_role
 
   def initialize(name)
@@ -8,7 +9,7 @@ class Pet # class of home pet
     @sleep = 100
     @eat = 100
     @agress = 0
-    @need_toilet = false  
+    @need_toilet = false
     @smile = '&#128525;'
     @speak = 'Hi, I am Krokokot'
     @author = ''
@@ -57,7 +58,7 @@ class Pet # class of home pet
     @eat -= rand(20)
     passage_of_time
   end
- 
+
   def sleeping
     if @sleep < 90
       @sleep = 100
@@ -137,75 +138,75 @@ class Pet # class of home pet
     if @health <= 0
       @health = 0
       puts "Krokokot #{@name}. Cause of death: disease !!! Game over!"
-      @author = 'Krokokot #{@name}. Cause of death: disease !!! Game over!'
+      @author = "Krokokot #{@name}. Cause of death: disease !!! Game over!"
       @smile = '&#128591;'
     elsif @eat <= 0
       @eat = 0
       puts "Krokokot #{@name}. Cause of death: hunger!!! Game over!"
-      @author = 'Krokokot #{@name}. Cause of death: hunger!!! Game over!'
+      @author = "Krokokot #{@name}. Cause of death: hunger!!! Game over!"
       @smile = '&#128591;'
     elsif @sleep <= 0
       @sleep = 0
       puts "Krokokot #{@name}. Cause of death: insomnia!!! Game over!"
-      @author = 'Krokokot #{@name}. Cause of death: insomnia!!! Game over!'
+      @author = "Krokokot #{@name}. Cause of death: insomnia!!! Game over!"
       @smile = '&#128591;'
     elsif @play <= 0
       @play = 0
       puts "Krokokot #{@name}. Cause of death: boredom!!! Game over!"
-      @author = 'Krokokot #{@name}. Cause of death: boredom!!! Game over!'
+      @author = "Krokokot #{@name}. Cause of death: boredom!!! Game over!"
       @smile = '&#128591;'
     end
   end
-  
+
   def change_name
-    if @guest_role == "admin" || @guest_role == "superadmin"
-      puts "Please enter a new name:"
+    if @guest_role == 'admin' || @guest_role == 'superadmin'
+      puts 'Please enter a new name:'
       @name = gets.chomp.capitalize
       puts("New name for Krokokot is #{@name}")
     else
-      puts("You have no right for this")
+      puts('You have no right for this')
     end
   end
 
   def superadmin(action)
-    
-    if @guest_role == "superadmin"
+
+    if @guest_role == 'superadmin'
       case action
-      when "kill"
-        @pet.is_dead = true
-      when "reset"
+      when 'kill'
+        @health = 0
+      when 'reset'
         @health = 100
         @play = 100
         @sleep = 100
         @eat = 100
         @agress = 0
-        @need_toilet = false  
+        @need_toilet = false
         @smile = '&#128525;'
-        @speak = 'Hi, I am Krokokot'
-      else
-        puts "Please enter Krokokots parameters:"
-        print "Health: "
+        @speak = 'Hi, I am refreshed!'
+      when 'change'
+        puts 'Please enter Krokokots parameters:'
+        print 'Health: '
         @health = gets.chomp.to_i
-        print "Play: "
+        print 'Play: '
         @play = gets.chomp.to_i
-        print "Sleep: "
-        @sleep= gets.chomp.to_i
-        print "Hunger: "
+        print 'Sleep: '
+        @sleep = gets.chomp.to_i
+        print 'Hunger: '
         @eat = gets.chomp.to_i
-        print "Agressive: "
+        print 'Agressive: '
         @agress = gets.chomp.to_i
       end
     else
-      puts("You have no right for this")
+      puts('You have no right for this')
     end
   end
 
   private
-  
+
   def hungry?
     @eat <= 30
   end
-  
+
   def boring?
     @play <= 30
   end
