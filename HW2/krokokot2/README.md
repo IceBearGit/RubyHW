@@ -8,8 +8,8 @@ The "admin" additionally has the right to give a new name to an already existing
 "Superadmin" also can rename the pet. 
 Additionally, he can return the pet to the initial parameters or specify these parameters explicitly. 
 Also, the super admin can kill the pet. 
-- To log into the system under the "admin" account - enter the password ###"qwerty". 
-- To log as a "superadmin" - enter the password ###"000000".
+- To log into the system under the "admin" account - enter the password **"qwerty"**. 
+- To log as a "superadmin" - enter the password **"000000"**.
 
 ## Gems
 
@@ -23,8 +23,8 @@ Also, the super admin can kill the pet.
 Download this repository into your computer:
 from [git](https://github.com/IceBearGit/RubyHW/tree/main/HW2/krokokot2)
 
-Install gems "content_transfer (0.1.0)", "yaml", "cgi", "erb".
+Install gems **"content_transfer (0.1.0)", "yaml", "cgi", "erb"**.
 
 ## How to start playing
 
-- You must run the file '''ui.rb''' and follow the instructions.
+- You must run the file ***ui.rb*** and follow the instructions.
