@@ -7,6 +7,6 @@
   :eat: 100
   :agress: 0
 :user:
-  :name: superadmin
-  :pass: '000000'
-  :role: superadmin
+  :name: admin
+  :pass: qwerty
+  :role: admin

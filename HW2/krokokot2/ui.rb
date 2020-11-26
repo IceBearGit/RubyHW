@@ -40,7 +40,6 @@ class Ui
         break
       elsif @pet.is_owner_dead?
         puts 'Your krokokot killed you. R.I.P.'
-        @pet.transfer = 'Your krokokot killed you. R.I.P.'
         @smile = '&#128591;'
         break
       end
@@ -92,6 +91,7 @@ class Ui
       <li>'kill' - Kill the pet</li>
       <li>'change' - Change values</li>
       <li>'reset' - Back to default values</li>
+      <li>'owner' - Change user role</li>
     </ul>
   </section>
   <p>Press enter to spent some hours without kroko...</p>
@@ -148,6 +148,11 @@ class Ui
           puts '-------------------'
           @pet.superadmin('change')
 
+        when 'owner'
+          puts "You entered 'owner'"
+          puts '-------------------'
+          @pet.superadmin('owner')
+
         when ''
           puts 'Some hours ago!'
           puts '-------------------'
@@ -192,6 +197,7 @@ class Ui
       'kill' - Kill the pet
       'change' - Change values
       'reset' - Back to default values
+      'owner' - Change user role
       Press enter to spent some hours without kroko..."
       puts '------------------------------------------------'
       action = gets.chomp.to_s

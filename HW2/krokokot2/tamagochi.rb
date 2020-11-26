@@ -195,6 +195,10 @@ class Pet
         @eat = gets.chomp.to_i
         print 'Agressive: '
         @agress = gets.chomp.to_i
+      when 'owner'
+        puts 'Now you are superadmin. What role do you want?:'
+        @guest_role = gets.chomp.to_s
+        puts "Now you are #{@guest_role}."
       end
     else
       puts('You have no right for this')
