@@ -1,4 +1,4 @@
-require_relative 'tamagochi' # operated menu for pet
+require_relative 'tamagochi'
 require 'content_transfer'
 require 'yaml'
 
@@ -9,10 +9,10 @@ class Ui
       pass: '',
       role: 'guest' },
     { name: 'admin',
-      pass: '5555',
+      pass: 'qwerty',
       role: 'admin' },
     { name: 'superadmin',
-      pass: '12345',
+      pass: '000000',
       role: 'superadmin' }
     ]
 
@@ -31,8 +31,8 @@ class Ui
     puts '------------------------------------------------'
     puts ''
     puts '-------------------'
-    print 'Give the name to your file: '
-    file_name = gets.chomp.to_s
+    print 'Give the name to your file (without .html): '
+    file_name = gets.chomp
 
     while true
       if @pet.is_dead?
@@ -46,16 +46,16 @@ class Ui
       end
       input_string = "
 <header>
-  <span>#{@pet.name}</span>
+  <span>Tamagochi #{@pet.name}</span>
 </header>
 <main>
   <section>
     <ul>
       <li>Health: <strong>#{@pet.health}</strong></li>
       <li>Eat: <strong>#{@pet.eat}</strong></li>
-      <li>Sleep: <strong>#{@pet.sleep}%</strong></li>
-      <li>Play: <strong>#{@pet.play}%</strong></li>
-      <li>Agressive: <strong>#{@pet.agress}%</strong></li>
+      <li>Sleep: <strong>#{@pet.sleep}</strong></li>
+      <li>Play: <strong>#{@pet.play}</strong></li>
+      <li>Agressive: <strong>#{@pet.agress}</strong></li>
     </ul>
   </section>
 
@@ -83,9 +83,18 @@ class Ui
       <li>4 - Play with him</li>
       <li>5 - Toilet for krokokot</li>
       <li>6 - Exit</li>
+      -----------------------------------------<br>
+      <strong>Function for admin:</strong>
+      <li>'chname' - Change name of Krokokot</li>
+      -----------------------------------------<br>
+      <strong>Function for superadmin:</strong>
+      <li>'chname' - Change name of Krokokot</li>
+      <li>'kill' - Kill the pet</li>
+      <li>'change' - Change values</li>
+      <li>'reset' - Back to default values</li>
     </ul>
   </section>
-  <p>Press enter to spent some hours without kroko...
+  <p>Press enter to spent some hours without kroko...</p>
   "
     content_transfer(input_string, file_name, true)
       action = ask_menu
@@ -156,7 +165,7 @@ class Ui
 
   def init_pet
     print 'First of all, you must give your pet a name: '
-    name = gets.chomp.to_s
+    name = gets.chomp.capitalize
     @pet = Pet.new(name)
   end
 
@@ -164,6 +173,7 @@ class Ui
     status_bar
 
       print '-------------------'
+      puts "\nYour authorized as: #{@pet.guest_role}"
       puts "\nWhat do you do with #{@pet.name}:
       1 - Visit a doctor
       2 - Give some food
@@ -173,9 +183,11 @@ class Ui
       6 - Exit
       -----------------------------------------
       Function for admin:
+      --------------------
       'chname' - Change name of Krokokot
       -----------------------------------------
       Function for superadmin:
+      -----------------------------------------
       'chname' - Change name of Krokokot
       'kill' - Kill the pet
       'change' - Change values
@@ -195,7 +207,7 @@ class Ui
     authorization = ''
     until authorization == 'exit' || @pet.guest_role != ''
       puts 'Please enter your username and password to start'
-      puts 'Enter your name:'
+      puts 'Enter your name (guest, admin, superadmin):'
       login_name = gets.chomp
       exit if login_name == 'exit'
       puts 'Enter your password:'
