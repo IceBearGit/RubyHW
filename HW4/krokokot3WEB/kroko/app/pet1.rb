@@ -15,7 +15,7 @@ class Pet
     @sleep  = 100
     @eat  = 100
     @agress  = 0
-    @need_toilet = false
+
   end
 
   def response
@@ -31,6 +31,7 @@ class Pet
         response.set_cookie('eat', @eat)
         response.set_cookie('agress', @agress)
         response.set_cookie('name', @request.params['name'])
+        response.set_cookie('speak', 'Hi, im live again!')
         response.redirect('/greeting')
       end
 
@@ -75,6 +76,10 @@ class Pet
 
   def get(attr)
     @request.cookies["#{attr}"].to_i
+  end
+
+  def post(attr)
+    @request.cookies["#{attr}"].to_s
   end
 
 end
