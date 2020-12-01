@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>KrokokotWEB</title>
+    
+  </head>
+  <body>
+
+  <h2><%= name %> is online</h2>
+  <img src="../public/kroko_regular.jpg" alt="kroko_regular">
+  <h3>Health <%= get('health')%></h3>
+  <h3>Play   <%= get('play')  %></h3>
+  <h3>Sleep  <%= get('sleep') %></h3>
+  <h3>Eat  <%= get('eat') %></h3>
+  <h3>Agress  <%= get('agress') %></h3>
+
+<div>
+  <form action="/change" method="get">
+
+    <button type="submit" class="btn btn-outline-info" name="health" value="health">Health</button>
+
+    <button type="submit" class="btn btn-outline-danger" name="play" value="play">Play</button>
+
+    <button type="submit" class="btn btn-outline-success" name="sleep" value="sleep">Sleep</button>
+
+    <button type="submit" class="btn btn-outline-warning" name="eat" value="eat">Eat</button>
+
+    <button type="submit" class="btn btn-outline-dark" name="toilet" value="">Go to the toilet</button>
+
+    <button type="submit" class="btn btn-outline-warning" name="spent" value="spent">Spent some time without pet</button>
+
+  </form> 
+
+  <form action="/exit" method="get">
+
+    <button type="submit" class="btn btn-outline-dark" name="" value="">Secret button</button>
+
+  </form>
+</div>
+
+</body>
+</html>
