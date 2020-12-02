@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
   <head>
     <meta charset="utf-8">
     <title>KrokokotWEB</title>
+    <link rel="stylesheet" href="../public/style.css">
   </head>
-  <body class="body_index">
 
-  <h1> Just born your krokokot: <%= name %> </h1>
-  <h3> Kroko say: Hi, my name is <%= name %> </h3>
-  <h3> I am krokokot and your best friend. But if you do not give me a food and play with me, i will eat you :) </h3>
-  <img src="../public/kroko_born.jpg" alt="kroko_born">
+  <body>
+  
+  <div class="flex-container"> 
+    <div><h3> Kroko say: Hi, my name is <%= name %>.</h3></div>
+    <div><h3> I am krokokot and your best friend. But if you do not give me a food and play with me, i will eat you :) </h3></div>
+  </div> 
+  
+  <div class="flex-container">
+    <img src="../public/kroko_born.jpg" alt="kroko_born" width="550" height="350">
+  </div>
+
   <h3>Status:</h3>
-  <h3>Health <%= get('health')%></h3>
-  <h3>Food   <%= get('play')  %></h3>
-  <h3>Sleep  <%= get('sleep') %></h3>
-  <h3>Eat  <%= get('eat') %></h3>
-  <h3>Agress  <%= get('agress') %></h3>
+  <div class="flex-container">
+    <div><h3>Health <%= get('health')%></h3></div>
+    <div><h3>Play   <%= get('play')  %></h3></div>
+    <div><h3>Sleep  <%= get('sleep') %></h3></div>
+    <div><h3>Eat  <%= get('eat') %></h3></div>
+    <div><h3>Agress  <%= get('agress') %></h3></div>
+  </div>
 
-<div class="row" >
-  <form action="/start" method="get">
+  <div class="flex-container">
+    <form action="/start" method="get">
 
-    <button type="submit" class="btn btn-outline-info" name="health" value="start">Lets play!</button>
+      <button type="submit" class="btn btn-outline-dark" name="health" value="start">Lets play!</button>
 
-  </form>
-</div>
+    </form>
+  </div>
 
-</body>
+  </body>
 </html>

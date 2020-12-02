@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <title>KrokokotWEB</title>
-    
+    <link rel="stylesheet" href="../public/style.css">
   </head>
+
   <body>
 
+  <div class="flex-container"> 
   <h2><%= name %> is online</h2>
-  <img src="../public/kroko_regular.jpg" alt="kroko_regular">
-  <div><h3>Kroko say: <%= post('speak') %></h3></div>
-  <h3>Health <%= get('health')%></h3>
-  <h3>Play   <%= get('play')  %></h3>
-  <h3>Sleep  <%= get('sleep') %></h3>
-  <h3>Eat  <%= get('eat') %></h3>
-  <h3>Agress  <%= get('agress') %></h3>
+  </div> 
 
-<div>
-  <form action="/change" method="get">
+  <div class="flex-container"> 
+    <img src="../public/kroko_regular.jpg" alt="kroko_regular" width="550" height="350">
+  </div> 
 
-    <button type="submit" class="btn btn-outline-info" name="health" value="health">Health</button>
+  <div class="flex-container"> 
+    <h3>Kroko say: <%= post('speak') %></h3>
+  </div> 
 
-    <button type="submit" class="btn btn-outline-danger" name="play" value="play">Play</button>
+  <div class="flex-container">
+    <div><h3>Health <%= get('health')%></h3></div>
+    <div><h3>Play   <%= get('play')  %></h3></div>
+    <div><h3>Sleep  <%= get('sleep') %></h3></div>
+    <div><h3>Eat  <%= get('eat') %></h3></div>
+    <div><h3>Agress  <%= get('agress') %></h3></div>
+  </div>
 
-    <button type="submit" class="btn btn-outline-success" name="sleep" value="sleep">Sleep</button>
+  <div class="flex-container">
+    <form action="/change" method="get">
 
-    <button type="submit" class="btn btn-outline-warning" name="eat" value="eat">Eat</button>
+      <button type="submit" class="btn btn-outline-danger" name="health" value="health">Health</button>
 
-    <button type="submit" class="btn btn-outline-warning" name="spent" value="spent">Spent some time without pet</button>
+      <button type="submit" class="btn btn-outline-danger" name="play" value="play">Play</button>
 
-  </form> 
+      <button type="submit" class="btn btn-outline-danger" name="sleep" value="sleep">Sleep</button>
 
-  <form action="/exit" method="get">
+      <button type="submit" class="btn btn-outline-danger" name="eat" value="eat">Eat</button>
 
-    <button type="submit" class="btn btn-outline-dark" name="" value="">Secret button</button>
+      <button type="submit" class="btn btn-outline-danger" name="spent" value="spent">Spent some time without pet</button>
 
-  </form>
-</div>
+    </form> 
+
+    <form action="/exit" method="get">
+
+      <button type="submit" class="btn btn-outline-dark" name="" value="">Secret button</button>
+
+    </form>
+  </div>
 
 </body>
 </html>
