@@ -4,6 +4,18 @@ require './app/lib/logic'
 class Pet
   include Logic
 
+  DATABASE = [
+  #  { log_name: '',
+   #   pass: '',
+  #    role: 'guest' },
+    { log_name: 'admin',
+      pass: 'qwerty',
+      role: 'admin' },
+    { log_name: 'superadmin',
+      pass: '000000',
+      role: 'superadmin' }
+    ]
+
   def self.call(env)
     new(env).response.finish
   end
@@ -15,12 +27,23 @@ class Pet
     @sleep  = 100
     @eat  = 100
     @agress  = 0
+    @guest_role = ''
+    @log_name = ''
+    @log_pass = ''
 
   end
 
   def response
     case @request.path
     when '/'
+      Rack::Response.new(render("authorization.html.erb"))
+
+    when '/authentification'
+    	@log_name = @request.params['login_name']
+    	@log_pass = @request.params['login_pass']
+        authorization(@log_name, @log_pass)
+
+    when '/form'
       Rack::Response.new(render("form.html.erb"))
 
     when '/initialize'
@@ -82,4 +105,17 @@ class Pet
     @request.cookies["#{attr}"].to_s
   end
 
+  def authorization(login_name, login_pass)
+    Rack::Response.new do |response|
+      user = DATABASE.find { |f| f[:log_name] == login_name && f[:pass] == login_pass }
+      if user.nil?
+      	response.set_cookie('auth', 'Wrong name or password. Input correct data')
+      	response.redirect('/')
+      else
+        @guest_role = user[:role]
+        response.set_cookie('auth', "You logged in as #{@guest_role}")
+        response.redirect('/form')
+      end
+    end
+   end
 end

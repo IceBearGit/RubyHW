@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>KrokokotWEB</title>
+    <link rel="stylesheet" href="../public/style.css">
+  </head>
+
+  <body>
+
+  <div class="flex-container">
+    <form action="/authentification" method="get">
+
+      <div>
+      <label for="name" class="sr-only">Enter authentification data:</label>
+      <input type="text" name="login_name" class="form-control" id="" placeholder="Login_name">
+      <input type="text" name="login_pass" class="form-control" id="" placeholder="Login_pass">
+      </div>
+      <button type="submit" class="btn btn-outline-dark" value="Submit">Submit</button>
+    </form>
+  </div>
+  <div class="flex-container"> 
+    <h3>Authorization: <%= post('auth') %></h3>
+  </div> 
+
+  </body>
+</html>
